@@ -1,0 +1,37 @@
+export const translations = {
+  en: {
+    intro: "This app is for people who find password managers too complex to use. Often, older people write passwords in notebooks, but those passwords are usually too simple and unsafe.\r\n\nThis small project offers a better way — it generates 3 types of strong passwords for each card.\r\n\nUsing it is easy: every time you need a new password, move to the next card in the list. Choose one of the three options, mark the one you're using, or scratch out the ones you don’t want. If the password is too long, simply scratch the extra characters — for example, if you need only 8 characters and the password has 16, just cross out the last 8.\r\n\nThis tool is especially useful for older adults.\r\n\nIf you want to help someone, just print a few pages for them and take a moment to explain how it works.",
+    introTitle: "How to use it?",
+    title: "Password Cards",
+    numberOfRows: "How many Cards",
+    passwordLength: "Password Length",
+    generateSheet: "Refresh",
+    print: "Print",
+    appOrWebsite: "App/Website",
+    usernameOrEmail: "Username/Email",
+    basic: "Letters & Numbers",
+    extended: "Letters, Numbers & Symbols",
+    full: "Letters, Numbers, Symbols & Special",
+    footerDisclaimer: "Use the next available card. Choose one password, mark or scratch the others. If it’s too long, scratch extra characters.",
+    footerNoShare: "Never share your passwords with other people. Keep this in a safe place",
+    cardLabel: "Card",
+  },
+  es: {
+    intro: "Esta aplicación es para personas que encuentran demasiado complicado usar un gestor de contraseñas. A menudo, las personas mayores escriben sus contraseñas en libretas, pero suelen ser demasiado simples e inseguras.\r\n\nEste pequeño proyecto ofrece una solución mejor: genera 3 tipos de contraseñas seguras para cada tarjeta.\r\n\nUsarlo es fácil: cada vez que necesites una nueva contraseña, pasa a la siguiente tarjeta en la lista. Elige una de las tres opciones, marca la que estás usando o tacha las que no necesitas. Si la contraseña es muy larga, simplemente tacha los caracteres extra — por ejemplo, si necesitas solo 8 caracteres y hay 16, tacha los últimos 8.\r\n\nEsta herramienta es especialmente útil para personas mayores.\r\n\nSi quieres ayudar a alguien, imprime unas páginas y tómate un momento para explicarles cómo funciona.",
+    introTitle: "Como se usa?",
+    title: "Tarjetas de Contraseñas",
+    numberOfRows: "Cuantas Tarjetas?",
+    passwordLength: "Longitud contraseña",
+    generateSheet: "Refrescar",
+    print: "Imprimir",
+    appOrWebsite: "App/Web",
+    usernameOrEmail: "Usuario/correo",
+    basic: "Letras y números",
+    extended: "Letras, números y símbolos",
+    full: "Completa (letras, números, símbolos, especiales)",
+    footerDisclaimer: "Usa la siguiente tarjeta disponible. Elige una contraseña, marca o tacha las otras. Si es muy larga, tacha los caracteres extras",
+    footerNoShare: "Nunca compartas tus contraseñas con otras personas. Guarda esto en un lugar seguro",
+    cardLabel: "Tarjeta",
+  }
+};
+

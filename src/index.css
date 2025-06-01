@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: system-ui, sans-serif;
+}
+
+@media print {
+  @page {
+    size: portrait;
+  }
+  html {
+    font-size: 72%;
+  }
+  .no-print {
+    display: none;
+  }
+  input::placeholder {
+    color: transparent !important;
+  }
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .print-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 8px 0;
+    background: white;
+    text-align: center;
+    font-size: 10px;
+    border-top: 1px solid #ccc;
+  }
+}
