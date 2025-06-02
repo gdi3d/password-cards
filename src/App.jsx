@@ -8,23 +8,31 @@ function generatePassword(length, type = "basic") {
   const numbers = "0123456789";
   const symbols = "!@#$%&*";
   const specials = "()_+{}|:<>?~-=[]\\;',./";
-  const minLenght = 8;
+  const minLength = 8;
 
-  let requiredSets = [lowercase, uppercase, numbers];
-  let allChars = lowercase + uppercase + numbers;
+  let requiredSets;
+  let allChars;
 
-  if (type === "extended") {
-    requiredSets.push(symbols);
-    allChars += symbols;
+  if (type === "numbers") {
+    requiredSets = [numbers];
+    allChars = numbers;
+  } else {
+    requiredSets = [lowercase, uppercase, numbers];
+    allChars = lowercase + uppercase + numbers;
+
+    if (type === "extended") {
+      requiredSets.push(symbols);
+      allChars += symbols;
+    }
+
+    if (type === "full") {
+      requiredSets.push(specials);
+      allChars += specials;
+    }
   }
-
-  if (type === "full") {
-    requiredSets.push(specials);
-    allChars += specials;
-  }
-  
-  if(length < minLenght ){
-    length = minLenght;
+ 
+  if(length < minLength ){
+    length = minLength;
   }
 
   let passwordChars = [];
@@ -65,7 +73,6 @@ function generatePassword(length, type = "basic") {
       passwordChars[i] = alternatives[Math.floor(Math.random() * alternatives.length)];
     }
   }
-
   return passwordChars.join('');
 }
 
@@ -73,6 +80,7 @@ function generateRows(rowCount, passwordLength) {
   return Array.from({ length: rowCount }, () => ({
     app: "",
     username: "",
+    numbers: generatePassword(passwordLength, "numbers"),
     basic: generatePassword(passwordLength, "basic"),
     extended: generatePassword(passwordLength, "extended"),
     full: generatePassword(passwordLength, "full")
@@ -174,16 +182,22 @@ export default function PasswordBook() {
         <span className="w-48 font-bold">{t.usernameOrEmail}</span>
         <span className="flex-1 border-b border-black ml-5"> </span>
       </div>
+      <h4>{t.passOptionsLabel}</h4>
+      <hr/>
       <div className="mb-2 items-center text-left border-b border-black">
-        <strong>{t.basic}</strong>
+        <span className="font-bold">{t.passNumbers}</span> <span className="text-sm">{t.passNumbersDescription}</span>
+        <PasswordCell password={row.numbers} />
+      </div>
+      <div className="mb-2 items-center text-left border-b border-black">
+        <span className="font-bold">{t.passBasic}</span> <span className="text-sm">{t.passBasicDescription}</span>
         <PasswordCell password={row.basic} />
       </div>
       <div className="mb-2 items-center border-b border-black">
-        <strong>{t.extended}</strong>
+        <span className="font-bold">{t.passExtended}</span> <span className="text-sm">{t.passExtendedDescription}</span>
         <PasswordCell password={row.extended} />
       </div>
       <div className="mb-2 items-center border-b border-black">
-        <strong>{t.full}</strong>
+        <span className="font-bold">{t.passFull}</span> <span className="text-sm">{t.passFullDescription}</span>
         <PasswordCell password={row.full} />
       </div>
     </div>
