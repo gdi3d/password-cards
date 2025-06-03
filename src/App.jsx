@@ -104,17 +104,14 @@ function PasswordCell({ password }) {
 
 function IntroCard() {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="mb-4 no-print">
-      <div className="border rounded-lg shadow p-4 bg-white" onClick={() => setIsOpen(!isOpen)}>
+      <div className="border rounded-lg shadow p-4 bg-white">
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-semibold">ℹ️ {t.introTitle || "How to use this app"}</h2>
         </div>
-        {isOpen && (
           <p className="mt-2 text-gray-700 whitespace-pre-line">{t.intro}</p>
-        )}
       </div>
     </div>
   );

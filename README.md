@@ -1,16 +1,24 @@
-# Password Card Generator
+# Password Cards Generator
 
-This is a simple, print-friendly web app designed to generate "password cards" for users who prefer to write their passwords on paper instead of using a password manager.
+This app was created to help older adults who find password managers too complex. Many still rely on notebooks to store passwords, which often leads to weak or reused ones.
+
+This tool offers a safer and simple alternative: it generates 4 strong passwords per card.
+
+Using it is easy. Whenever a new password is needed, move to the next card in the list. Choose one of the four password options, mark the one you choose, or cross out the others. If the password is too long, just scratch the extra characters — for example, if you only need 8 characters and the password has 16, cross out the last 8.
+
+If you have a parent or grandparent who struggles with password security, print out a few pages and take a moment to explain how to use them. It can make a big difference.
+
+[https://gdi3d.github.io/password-cards/](https://gdi3d.github.io/password-cards/)
 
 ## ✨ Features
 
 - Generate between 10 and 30 password entries per page
-- Three types of passwords:
+- Four types of passwords:
+  - Numbers
   - Letters and numbers
   - Letters, numbers and symbols
   - Full: Letters, numbers, symbols, and special characters
 - Adjustable password length (8–32 characters)
-- Auto-updates the list on changes
 - Option to print or export to PDF
 - Does **not** save any data — fully local and secure for offline use
 
@@ -50,7 +58,7 @@ These instructions are beginner-friendly and assume you're using a desktop compu
    ```
    VITE vX.X.X  ready in Xs
 
-   ➜  Local:   http://localhost:5173/
+   ➜  Local:   http://localhost:5173/password-cards/
    ```
 
 5. Open that link in your browser. You're good to go!
@@ -65,13 +73,13 @@ This will generate a folder you can host anywhere (e.g. GitHub Pages, Netlify):
 npm run build
 ```
 
-It creates a folder called `dist/` with the static files.
+It creates a folder called `docs/` with the static files.
 
 ---
 
 ## 🧾 Notes
 
-- You can **print to paper** or **"Save as PDF"** using your browser’s print dialog.
+- You can **print to paper** **"Save as PDF"** using your browser’s print dialog.
 - Your data is **never stored** — this app is fully client-side.
 - Made with ❤️ using React + Tailwind CSS.
 - 80% ChatGTP, 20% Human
