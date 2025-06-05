@@ -47,7 +47,7 @@ function generatePassword(length, type = "basic") {
   }
 
   // Fill remaining characters
-  while (passwordChars.length < length) {
+/*  while (passwordChars.length < length) {
     let char;
     let attempts = 0;
     do {
@@ -58,7 +58,32 @@ function generatePassword(length, type = "basic") {
     } while (passwordChars[passwordChars.length - 1] === char);
     passwordChars.push(char);
   }
+  */
+ // Fill remaining characters
+  const targetSymbolCount = Math.floor(length * 0.5);
+  let symbolCount = passwordChars.filter(c => symbols.includes(c) || specials.includes(c)).length;
 
+  while (passwordChars.length < length) {
+    let char;
+    let attempts = 0;
+    do {
+      if ((type === "extended" || type === "full") && symbolCount < targetSymbolCount) {
+        // Prefer symbols or specials until we hit the 40% target
+        const symbolSet = type === "extended" ? symbols : specials;
+        char = symbolSet.charAt(Math.floor(Math.random() * symbolSet.length));
+        symbolCount++;
+      } else {
+        char = allChars.charAt(Math.floor(Math.random() * allChars.length));
+        // Track new symbol if it happens naturally
+        if (symbols.includes(char) || specials.includes(char)) {
+          symbolCount++;
+        }
+      }
+      attempts++;
+      if (attempts > 10) break;
+    } while (passwordChars.length && passwordChars[passwordChars.length - 1] === char);
+    passwordChars.push(char);
+  }
   // Shuffle to randomize required character positions
   for (let i = passwordChars.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -73,6 +98,7 @@ function generatePassword(length, type = "basic") {
       passwordChars[i] = alternatives[Math.floor(Math.random() * alternatives.length)];
     }
   }
+  
   return passwordChars.join('');
 }
 
